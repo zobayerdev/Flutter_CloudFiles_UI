@@ -1,3 +1,4 @@
+import 'package:cloud_files/pages/project.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class TeamFolderPage extends StatefulWidget {
 
 class _TeamFolderPageState extends State<TeamFolderPage> {
   double availableScreenWidth = 0;
-
+  
   @override
   Widget build(BuildContext context) {
     availableScreenWidth = MediaQuery.of(context).size.width - 50;
@@ -221,42 +222,49 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
     );
   }
 
-  Container buildProjectRow(String title, Color color) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      height: 65,
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Icon(
-                Icons.folder,
-                color: color,
-              ),
-              const SizedBox(
-                width: 12,
-              ),
-              Text(
-                title,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.more_vert,
-              color: Colors.grey,
+  Widget buildProjectRow(String folderName, Color color) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute<void>(
+          builder: (BuildContext context) => ProjectPage(folderName: folderName,),
+        ));
+      },
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        height: 65,
+        decoration: BoxDecoration(
+          color: Colors.grey.shade200,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  Icons.folder,
+                  color: color,
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                Text(
+                  folderName,
+                  style:
+                      const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
-          ),
-        ],
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.more_vert,
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
