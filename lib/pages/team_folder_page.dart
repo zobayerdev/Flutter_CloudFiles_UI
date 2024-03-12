@@ -211,12 +211,13 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
       bottomNavigationBar: ConvexAppBar(
         items: const [
           TabItem(icon: Icons.access_time, title: 'History'),
-          TabItem(icon: Icons.add, title: 'Upload'),
-          TabItem(icon: Icons.add_box, title: 'Folder'),
+          TabItem(icon: Icons.upload, title: 'Upload'),
+          TabItem(icon: Icons.folder, title: 'Folder'),
         ],
         initialActiveIndex: 1, //optional, default as 0
         onTap: (int i) => print('click index=$i'),
       ),
+      
     );
   }
 
