@@ -1,4 +1,3 @@
-import 'package:cloud_files/pages/project.dart';
 import 'package:cloud_files/pages/team_folder_page.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
@@ -21,10 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Cloud Files',
-      home: ProjectPage(
-        folderName: 'folderName',
-      ),
-      // home: TeamFolderPage(),
+      home: TeamFolderPage(),
     );
   }
 }
